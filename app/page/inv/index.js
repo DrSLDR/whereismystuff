@@ -16,6 +16,7 @@
 
 window.$ = require('jquery');
 require('../../lib/tab.js');
+//require('../../lib/sorttable.js');
 
 const electron = require('electron');
 const remote = electron.remote;
@@ -105,6 +106,12 @@ function getSelectedRows(){
 
 // Update table function
 function updateTable(firstCall = false){
+  // Define table pointer
+  var table = $('#inventory');
+  // Clear out sorting classes
+  heads = table.parent().children('thead').children().children();
+  heads.removeClass('sorttable_sorted').removeClass('sorttable_sorted_reverse');
+  heads.children().not('input').remove();
   // Define callback for row selection and formatting
   var formatCallback = function(){
     // Row formatting
@@ -124,7 +131,6 @@ function updateTable(firstCall = false){
       }
     });
   }
-  var table = $('#inventory');
   if(firstCall){
     dbModel.getInvHead(insertRowIntoTable(table), formatCallback);
   }
