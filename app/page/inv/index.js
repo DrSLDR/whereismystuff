@@ -102,8 +102,10 @@ function updateTable(firstCall = false){
     });
 
     // Row selection
-    $('#inventory tr').click(function(){
-      $(this).children().children(':checkbox').click();
+    $('#inventory tr').click(function(e){
+      if(e.target.type !== 'checkbox'){
+        $(this).children().children(':checkbox').click();
+      }
     });
   }
   var table = $('#inventory');
