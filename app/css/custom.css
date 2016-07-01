@@ -1,8 +1,8 @@
-.main-menu-row {
+.main-menu-row{
     margin: 10px 0;
 }
 
-.main-menu-button {
+.main-menu-button{
     width: 50%;
 }
 
@@ -18,11 +18,15 @@
     margin: 5px 0;
 }
 
-.nav {
+.na{
     margin: 10px 0;
 }
 
 .table-wrapper{
     max-height: 381px;
     overflow-y: scroll;
+}
+
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after{
+    content: " \25B4\25BE"
 }
